@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body {
+font-family: Arial, sans-serif; text-align: center;
+}
+h2 {
+margin-bottom: 20px;
+}
+.gallery { display: grid;
+grid-template-columns: repeat(5,1fr); gap: 15px;
+width: 80%; margin: auto;
+}
+.gallery img { width: 100%;
+border-radius: 10px; cursor: pointer; transition: transform 0.3s;
+}
+.gallery img:hover { transform: scale(1.1);
+}
+    </style>
+</head>
+
+<body>
+    <h2>My Photo Gallery</h2>
+<div class="gallery">
+<img src="https://picsum.photos/300?1" onclick="showMessage()">
+<img src="https://picsum.photos/300?2" onclick="showMessage()">
+<img src="https://picsum.photos/300?3" onclick="showMessage()">
+<img src="https://picsum.photos/300?4" onclick="showMessage()">
+<img src="https://picsum.photos/300?5" onclick="showMessage()">
+<img src="https://picsum.photos/300?6" onclick="showMessage()">
+<img src="https://picsum.photos/300?7" onclick="showMessage()">
+<img src="https://picsum.photos/300?8" onclick="showMessage()">
+<img src="https://picsum.photos/300?9" onclick="showMessage()">
+<img src="https://picsum.photos/300?10" onclick="showMessage()">
+
+</div>
+
+<script>let count = 0;
+function showMessage() { count++;
+alert("Photo clicked " + count + " times!");
+}</script>
+
+</body>
+</html>

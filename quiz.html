@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Quiz</title>
+    <style>
+         body {
+font-family: Arial, sans-serif; background-color: #dff6ff; text-align: center;
+}
+.quiz-container { background: white; width: 350px; margin: 100px auto; padding: 20px; border-radius: 10px;
+}
+button { width: 100%; padding: 10px; margin: 6px 0;
+    font-size: 16px; cursor: pointer;
+}
+    </style>
+</head>
+
+<body>
+<div class="quiz-container">
+    <h2 id="question"></h2>
+
+<button onclick="checkAnswer(0)">Option 1</button><br><br>
+<button onclick="checkAnswer(1)">Option 2</button><br><br>
+<button onclick="checkAnswer(2)">Option 3</button><br><br>
+
+<p id="result"></p>
+</div>
+
+
+<script>
+let questions = [
+    { q: "Capital of India?", options: ["Mumbai", "Delhi", "Pune"], answer: 1 },
+    { q: "2 + 2 = ?", options: ["3", "4", "5"], answer: 1 }
+];
+
+let index = 0;
+let score = 0;
+
+function loadQuestion() {
+    document.getElementById("question").innerText = questions[index].q;
+
+    let btns = document.getElementsByTagName("button");
+    for (let i = 0; i < 3; i++) {
+        btns[i].innerText = questions[index].options[i];
+    }
+}
+
+function checkAnswer(choice) {
+    if (choice == questions[index].answer) {
+        score++;
+    }
+
+    index++;
+
+    if (index < questions.length) {
+        loadQuestion();
+    } else {
+        document.getElementById("question").innerText = "Quiz Finished!";
+        document.getElementById("result").innerText = "Score: " + score;
+    }
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
